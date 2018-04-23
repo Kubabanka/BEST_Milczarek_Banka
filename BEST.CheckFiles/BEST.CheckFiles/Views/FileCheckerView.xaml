@@ -1,0 +1,43 @@
+﻿<Window x:Class="BEST.CheckFiles.Views.FileCheckerView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:cal="http://www.caliburnproject.org"
+        xmlns:local="clr-namespace:BEST.CheckFiles.Views"
+        mc:Ignorable="d"
+        Title="FileCheckerView" Height="450" Width="400">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="5" >
+            <TextBlock Margin="5" Text="Select folder by clicking on the button"/>
+            <Button  Margin="5" Name="SelectFolder" Content="Select Folder" />
+            <TextBlock Margin="5" Text="{Binding FolderPath, StringFormat=Selected folder: \{0\}}"/>
+            <TextBlock Margin="5" Text="{Binding PcapsCount, StringFormat=Program found \{0\} pcap files to analyze}"/>
+            <StackPanel Margin="5" Visibility="{Binding ShowAnalyze, Converter={StaticResource VisibleIfTrueConverter}}">
+                <Button Name="Analyze" Content="Analyze folder" />
+                <StackPanel Visibility="{Binding IsAnalizeComplete, Converter={StaticResource VisibleIfTrueConverter}}">
+                    <TextBlock Text="Files modified by Jakub Bańka and Patryk Milczarek" />
+                    <ItemsControl Name="ModifiedFiles">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="5" Orientation="Horizontal">
+                                    <TextBlock Text="{Binding}" VerticalAlignment="Center" />
+                                    <Button Name="OpenFile" Margin="5" Content="Open file" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="Click">
+                                                <cal:ActionMessage MethodName="OpenFile">
+                                                    <cal:Parameter Value="{Binding}"/>
+                                                </cal:ActionMessage>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</Window>

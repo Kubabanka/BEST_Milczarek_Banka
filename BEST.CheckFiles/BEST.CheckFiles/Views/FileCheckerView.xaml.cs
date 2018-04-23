@@ -10,26 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace BEST.CheckFiles
+namespace BEST.CheckFiles.Views
 {
     /// <summary>
-    /// Logika interakcji dla klasy MainWindow.xaml
+    /// Logika interakcji dla klasy FileCheckerView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class FileCheckerView : Window
     {
-        public MainWindow()
+        public FileCheckerView()
         {
             InitializeComponent();
-            this.DataContext = new FileChecker();
-        }
-
-        private void SelectFolderButton_Click(object sender, RoutedEventArgs e)
-        {
-            var con = (FileChecker)DataContext;
-            con.SelectFolder();
         }
     }
 }

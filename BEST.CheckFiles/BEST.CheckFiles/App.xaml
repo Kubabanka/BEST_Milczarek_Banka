@@ -1,9 +1,16 @@
 ﻿<Application x:Class="BEST.CheckFiles.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:BEST.CheckFiles"
-             StartupUri="MainWindow.xaml">
+             xmlns:conv ="clr-namespace:BEST.CheckFiles.Converters"
+             xmlns:local="clr-namespace:BEST.CheckFiles">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <local:FileCheckerBootstrapper x:Key="bootstrapper" />
+                    <conv:VisibleIfTrueConverter x:Key="VisibleIfTrueConverter"/>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
