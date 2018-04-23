@@ -1,12 +1,14 @@
-﻿<Window x:Class="BEST.CheckFiles.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BEST.CheckFiles"
+        xmlns:Properties="clr-namespace:BEST.CheckFiles.Properties" x:Class="BEST.CheckFiles.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="File Checker" Height="450" Width="800">
     <Grid>
-        
+        <Button x:Name="SelectFolderButton" Content="Select folder" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="155,60,0,0" Click="SelectFolderButton_Click" />
+        <TextBlock x:Name="textBlock"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Path}" VerticalAlignment="Top"/>
     </Grid>
 </Window>

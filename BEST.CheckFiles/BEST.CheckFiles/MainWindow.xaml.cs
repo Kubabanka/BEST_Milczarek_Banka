@@ -23,6 +23,13 @@ namespace BEST.CheckFiles
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = new FileChecker();
+        }
+
+        private void SelectFolderButton_Click(object sender, RoutedEventArgs e)
+        {
+            var con = (FileChecker)DataContext;
+            con.SelectFolder();
         }
     }
 }
