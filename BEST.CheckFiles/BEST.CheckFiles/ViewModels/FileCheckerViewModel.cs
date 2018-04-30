@@ -16,7 +16,6 @@ namespace BEST.CheckFiles.ViewModels
         {
             Pcaps = new List<string>();
             ModifiedFiles = new ObservableCollection<string>();
-            CalculatedHashes = new List<string>();
             FolderPath = String.Empty;
         }
         private List<string> pcaps;
@@ -99,8 +98,6 @@ namespace BEST.CheckFiles.ViewModels
             }
         }
 
-        public List<string> CalculatedHashes { get; set; }
-
         private bool isAnalizeComplete;
         public bool IsAnalizeComplete
         {
@@ -136,7 +133,6 @@ namespace BEST.CheckFiles.ViewModels
 
         public void Analyze()
         {
-            CalculatedHashes.Clear();
             ModifiedFiles.Clear();
             foreach (var file in Pcaps)
             {
